@@ -56,19 +56,17 @@ output      <= reg;
 
     begin
         if rising_edge(clk) then
-            if (enable = '1') then
-                counter <= counter + CONCURRENT;
-
-                reg(reg'high downto (reg'high - (CONCURRENT-1))) <= feedback;
-                reg((reg'high - CONCURRENT) downto 0) <= reg(reg'high downto CONCURRENT);
-            end if;
-
             if (reset = '1') then
                 reg <= (others => '0');
                 counter <= (others => '0');
             elsif (load = '1') then
                 reg <= input;
                 counter <= (others => '0');
+            elsif (enable = '1') then
+                counter <= counter + CONCURRENT;
+
+                reg(reg'high downto (reg'high - (CONCURRENT-1))) <= feedback;
+                reg((reg'high - CONCURRENT) downto 0) <= reg(reg'high downto CONCURRENT);
             end if;
         end if;
 

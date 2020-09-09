@@ -109,19 +109,6 @@ begin
 
     begin
         if rising_edge(clk) then
-            if (enable = '1') then
-                counter <= counter + CONCURRENT;
-
-                reg_a(reg_a'high downto (reg_a'high - (CONCURRENT-1))) <= feedback_a;
-                reg_a((reg_a'high - CONCURRENT) downto 0) <= reg_a(reg_a'high downto CONCURRENT);
-
-                reg_b(reg_b'high downto (reg_b'high - (CONCURRENT-1))) <= feedback_b;
-                reg_b((reg_b'high - CONCURRENT) downto 0) <= reg_b(reg_b'high downto CONCURRENT);
-
-                reg_c(reg_c'high downto (reg_c'high - (CONCURRENT-1))) <= feedback_c;
-                reg_c((reg_c'high - CONCURRENT) downto 0) <= reg_c(reg_c'high downto CONCURRENT);
-            end if;
-
             if (reset = '1') then
                 reg_a <= (others => '0');
                 reg_b <= (others => '0');
@@ -132,6 +119,17 @@ begin
                 reg_b <= input_b;
                 reg_c <= input_c;
                 counter <= (others => '0');
+            elsif (enable = '1') then
+                counter <= counter + CONCURRENT;
+
+                reg_a(reg_a'high downto (reg_a'high - (CONCURRENT-1))) <= feedback_a;
+                reg_a((reg_a'high - CONCURRENT) downto 0) <= reg_a(reg_a'high downto CONCURRENT);
+
+                reg_b(reg_b'high downto (reg_b'high - (CONCURRENT-1))) <= feedback_b;
+                reg_b((reg_b'high - CONCURRENT) downto 0) <= reg_b(reg_b'high downto CONCURRENT);
+
+                reg_c(reg_c'high downto (reg_c'high - (CONCURRENT-1))) <= feedback_c;
+                reg_c((reg_c'high - CONCURRENT) downto 0) <= reg_c(reg_c'high downto CONCURRENT);
             end if;
         end if;
 
