@@ -58,13 +58,13 @@ foreach fi $files_main {
 set_property "top" $target_top $src_files
 
 set files_sim [list \
- "[file normalize "../../tb/LWC_TB.vhd"]"\
+ "[file normalize "../../src_tb/LWC_TB.vhd"]"\
 ]
 
 set files_sim_data [list \
- "[file normalize "../../KAT/KAT_MS_32/do.txt"]"\
- "[file normalize "../../KAT/KAT_MS_32/sdi.txt"]"\
- "[file normalize "../../KAT/KAT_MS_32/pdi.txt"]"\
+ "[file normalize "../../KAT/KAT_32/do.txt"]"\
+ "[file normalize "../../KAT/KAT_32/sdi.txt"]"\
+ "[file normalize "../../KAT/KAT_32/pdi.txt"]"\
 ]
 
 set sim_files [get_filesets sim_1]
