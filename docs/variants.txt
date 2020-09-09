@@ -1,0 +1,298 @@
+===============================================================
+
+Notation:
+ 
+Na, Nm, Nc, Nh : the number of complete blocks of associated data, plaintext, ciphertext, and hash message, respectively
+Ina, Inm, Inc, Inh : binary variables equal to 1 if the last block of the respective data type is incomplete, and 0 otherwise
+Bla, Blm, Blc, Blh : the number of bytes in the incomplete block of associated data, plaintext, ciphertext, and hash message, respectively.
+ 
+v1: TinyJambu-128 32-bit concurrent NLFSR
+ 
+a.  Design goal
+ 
+Support for authenticated encryption and decryption.
+Basic-iterative architecture .
+Maximum throughput assuming 
+  • 2000 or less LUTs
+  • 4000 or less FFs
+  • No BRAMs and no DSP units
+of Xilinx Artix-7 FPGAs
+
+b.  Supported maximum sizes of inputs
+ 
+2^50-1
+ 
+c.  Reference software implementation
+
+crypto_aead/tinyjambu128/ref
+in https://bench.cr.yp.to/supercop/supercop-20200702.tar.xz
+
+d.  Non-default values of generics and constants
+ 
+CONCURRENT = 32
+ 
+e.  Block sizes
+ 
+AD block size = 32 bits
+Plaintext/Ciphertext block size = 32 bits
+ 
+f.  Execution times
+ 
+Execution time of authenticated encryption:
+ 36+42+(14*Na)+(34*Nm)+48
+ 
+Execution time of authenticated decryption:
+ 36+42+(14*Na)+(34*Nc)+48
+ 
+g.  Latencies
+ 
+Latency of authenticated encryption:
+78
+ 
+Latency of authenticated decryption:
+78
+ 
+h.  Difference between execution times for a new key and the same key
+78
+
+v2: TinyJambu-128 16-bit concurrent NLFSR
+ 
+a.  Design goal
+ 
+Support for authenticated encryption and decryption.
+Basic-iterative architecture .
+Maximum throughput assuming 
+  • 2000 or less LUTs
+  • 4000 or less FFs
+  • No BRAMs and no DSP units
+of Xilinx Artix-7 FPGAs
+
+b.  Supported maximum sizes of inputs
+ 
+2^50-1
+ 
+c.  Reference software implementation
+
+crypto_aead/tinyjambu128/ref
+in https://bench.cr.yp.to/supercop/supercop-20200702.tar.xz
+
+d.  Non-default values of generics and constants
+ 
+CONCURRENT = 16
+ 
+e.  Block sizes
+ 
+AD block size = 32 bits
+Plaintext/Ciphertext block size = 32 bits
+ 
+f.  Execution times
+ 
+Execution time of authenticated encryption:
+ 68+78+(26*Na)+(66*Nm)+92
+Execution time of authenticated decryption:
+ 68+78+(26*Na)+(66*Nc)+92
+
+g.  Latencies
+ 
+Latency of authenticated encryption:
+146
+ 
+Latency of authenticated decryption:
+146
+ 
+h.  Difference between execution times for a new key and the same key
+146
+
+v3: TinyJambu-128 8-bit concurrent NLFSR
+ 
+a.  Design goal
+ 
+Support for authenticated encryption and decryption.
+Basic-iterative architecture .
+Maximum throughput assuming 
+  • 2000 or less LUTs
+  • 4000 or less FFs
+  • No BRAMs and no DSP units
+of Xilinx Artix-7 FPGAs
+
+b.  Supported maximum sizes of inputs
+ 
+2^50-1
+ 
+c.  Reference software implementation
+
+crypto_aead/tinyjambu128/ref
+in https://bench.cr.yp.to/supercop/supercop-20200702.tar.xz
+
+d.  Non-default values of generics and constants
+ 
+CONCURRENT = 8
+ 
+e.  Block sizes
+ 
+AD block size = 32 bits
+Plaintext/Ciphertext block size = 32 bits
+ 
+f.  Execution times
+ 
+Execution time of authenticated encryption:
+  132+150+(50*Na)+(130*Nm)+180
+Execution time of authenticated decryption:
+  132+150+(50*Na)+(130*Nc)+180
+
+g.  Latencies
+ 
+Latency of authenticated encryption:
+282
+ 
+Latency of authenticated decryption:
+282
+ 
+h.  Difference between execution times for a new key and the same key
+282
+
+v4: TinyJambu-128 4-bit concurrent NLFSR
+ 
+a.  Design goal
+ 
+Support for authenticated encryption and decryption.
+Basic-iterative architecture .
+Maximum throughput assuming 
+  • 2000 or less LUTs
+  • 4000 or less FFs
+  • No BRAMs and no DSP units
+of Xilinx Artix-7 FPGAs
+
+b.  Supported maximum sizes of inputs
+ 
+2^50-1
+ 
+c.  Reference software implementation
+
+crypto_aead/tinyjambu128/ref
+in https://bench.cr.yp.to/supercop/supercop-20200702.tar.xz
+
+d.  Non-default values of generics and constants
+ 
+CONCURRENT = 4
+ 
+e.  Block sizes
+ 
+AD block size = 32 bits
+Plaintext/Ciphertext block size = 32 bits
+ 
+f.  Execution times
+ 
+Execution time of authenticated encryption:
+ 260+294+(98*Na)+(258*Nm)+356
+Execution time of authenticated decryption:
+ 260+294+(98*Na)+(258*Nc)+356
+
+g.  Latencies
+ 
+Latency of authenticated encryption:
+554 
+
+Latency of authenticated decryption:
+554 
+
+h.  Difference between execution times for a new key and the same key
+554
+
+v5: TinyJambu-128 2-bit concurrent NLFSR
+ 
+a.  Design goal
+ 
+Support for authenticated encryption and decryption.
+Basic-iterative architecture .
+Maximum throughput assuming 
+  • 2000 or less LUTs
+  • 4000 or less FFs
+  • No BRAMs and no DSP units
+of Xilinx Artix-7 FPGAs
+
+b.  Supported maximum sizes of inputs
+ 
+2^50-1
+ 
+c.  Reference software implementation
+
+crypto_aead/tinyjambu128/ref
+in https://bench.cr.yp.to/supercop/supercop-20200702.tar.xz
+
+d.  Non-default values of generics and constants
+ 
+CONCURRENT = 2
+ 
+e.  Block sizes
+ 
+AD block size = 32 bits
+Plaintext/Ciphertext block size = 32 bits
+ 
+f.  Execution times
+ 
+Execution time of authenticated encryption:
+ 516+582+(194*Na)+(514*Nm)+708
+Execution time of authenticated decryption:
+ 516+582+(194*Na)+(514*Nc)+708
+
+g.  Latencies
+ 
+Latency of authenticated encryption:
+1098 
+
+Latency of authenticated decryption:
+1098
+
+h.  Difference between execution times for a new key and the same key
+1098
+
+v5: TinyJambu-128 bit-serial NLFSR
+ 
+a.  Design goal
+ 
+Support for authenticated encryption and decryption.
+Basic-iterative architecture .
+Maximum throughput assuming 
+  • 2000 or less LUTs
+  • 4000 or less FFs
+  • No BRAMs and no DSP units
+of Xilinx Artix-7 FPGAs
+
+b.  Supported maximum sizes of inputs
+ 
+2^50-1
+ 
+c.  Reference software implementation
+
+crypto_aead/tinyjambu128/ref
+in https://bench.cr.yp.to/supercop/supercop-20200702.tar.xz
+
+d.  Non-default values of generics and constants
+ 
+CONCURRENT = 1
+ 
+e.  Block sizes
+ 
+AD block size = 32 bits
+Plaintext/Ciphertext block size = 32 bits
+ 
+f.  Execution times
+ 
+Execution time of authenticated encryption:
+ 1028+1158+(386*Na)+(1026*Nm)+1412
+Execution time of authenticated decryption:
+ 1028+1158+(386*Na)+(1026*Nc)+1412
+
+
+g.  Latencies
+ 
+Latency of authenticated encryption:
+2186
+
+Latency of authenticated decryption:
+2186
+
+h.  Difference between execution times for a new key and the same key
+2186
+
