@@ -82,7 +82,7 @@ foreach fi $files_main {
 set_property "top" $target_top $src_files
 
 set files_sim [list \
- "[file normalize "../../tb/LWC_TI_TB.vhd"]"\
+ "[file normalize "../../src_tb/LWC_TI_TB.vhd"]"\
 ]
 
 set files_sim_data [list \
